@@ -1,7 +1,7 @@
 package com.example.nagwaassignment.framework.di
 
 import android.content.Context
-import com.example.nagwaassignment.MainActivity
+import com.example.nagwaassignment.presentation.MainActivity
 import com.example.nagwaassignment.presentation.downloaded.DownloadedFragment
 import com.example.nagwaassignment.presentation.home.HomeFragment
 import com.example.nagwaassignment.presentation.inProgress.InProgressFragment

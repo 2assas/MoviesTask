@@ -1,12 +1,11 @@
 package com.example.nagwaassignment.presentation.home
 
-import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.nagwaassignment.MyApplication
 import com.example.nagwaassignment.databinding.FragmentHomeBinding
@@ -23,14 +22,12 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        homeViewModel.requestAllFiles()
+//        homeViewModel.allFilesMutableLiveData.observe(viewLifecycleOwner) {
+//            it[0].name?.let { it1 -> Log.e("checkFiles", it1) }
+//        }
         return root
     }
 

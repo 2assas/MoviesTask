@@ -1,14 +1,24 @@
 package com.example.nagwaassignment.presentation.home
 
-import androidx.lifecycle.LiveData
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.downloaded.showAllInDownloads
+import com.example.files.AllFiles
+import com.example.files.showAllFiles
+import com.example.nagwaassignment.framework.di.RetrofitModule
+import com.example.gateways.networking.ApiService
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(): ViewModel() {
+class HomeViewModel @Inject constructor(retrofitModule: RetrofitModule) {
+    val allFilesMutableLiveData: MutableLiveData<AllFiles> = MutableLiveData()
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private var api : ApiService = retrofitModule.provideApiService()
+
+    @SuppressLint("CheckResult")
+    fun requestAllFiles(){
+      showAllFiles()
     }
-    val text: LiveData<String> = _text
 }

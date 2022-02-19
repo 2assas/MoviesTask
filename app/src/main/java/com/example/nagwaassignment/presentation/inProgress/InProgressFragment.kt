@@ -24,7 +24,6 @@ class InProgressFragment : Fragment() {
     ): View {
         _binding = FragmentInprogressBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
         val textView: TextView = binding.textInprogress
         inProgressViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
